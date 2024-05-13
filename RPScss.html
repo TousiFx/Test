@@ -22,6 +22,15 @@
             height: 130px;
             border-radius: 50%;
         }
+        .score{
+          margin-top: 60px;
+        }
+        .js-reset-btm{
+          padding: 7px 20px;
+          border: none;
+          font-size: 15px;
+          cursor: pointer;
+        }
       
     </style>
 </head>
@@ -41,7 +50,7 @@
 
     <p class="js-result"></p>
     <p class="js-moves"></p>
-    <p class="js-score"></p>
+    <p class="js-score score"></p>
 
     <button onclick="
       score.wins = 0;
@@ -49,7 +58,7 @@
       score.ties = 0;
       localStorage.removeItem('score');
       updateScoreElement();
-    ">Reset Score</button>
+    " class="js-reset-btm">Reset Score</button>
 
     <script>
       let score = JSON.parse(localStorage.getItem('score')) || {
@@ -107,7 +116,10 @@
 
         document.querySelector('.js-result').innerHTML = result;
 
-        document.querySelector('.js-moves').innerHTML = `You ${playerMove} - ${computerMove} Computer`;
+        document.querySelector('.js-moves').innerHTML = `You 
+      <img src="RPCimages/${playerMove}-emoji.png" class="move-icon">
+      <img src="RPCimages/${computerMove}-emoji.png"class="move-icon">
+      Computer`;
       }
 
       function updateScoreElement() {
