@@ -10,12 +10,16 @@
     <h3>Todo List Practice 1</h3>
     <input type="text" placeholder="Todo name" class="js-input">
     <button onclick="addTodo()">Add</button>
+
+
     <script>
-        const todoarray = [];
+        const todoList = [];
         function addTodo() {
         const inputElement = document.querySelector('.js-input')
-        const inputwork = inputElement.value;
-        console.log(inputwork)
+        const inputWork = inputElement.value;
+        todoList.push(inputWork)
+        console.log(todoList)
+        inputElement.value = '';
 
         }
     </script>
